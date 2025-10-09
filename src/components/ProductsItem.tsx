@@ -1,0 +1,26 @@
+interface IProductProps{
+ id: number,
+        image:string,
+        title:string,
+        description:string,
+        price:number
+}
+
+function ProductsItem({image,title,description,price}:IProductProps) {
+  return (
+    <>
+          <div className=' h-fit  shadow-2xl '>
+          <img src={image} className='p-2 rounded-md shadow'/>
+          <div className='p-2 text-right  rtl font-medium '>
+            <h1 className=" font-extrabold pt-2">{title}</h1>
+            <h5 className=" pb-1 text-gray-700 font-extralight">{description}</h5>
+            <p className=" pt-2 font-mono text-left">قیمت:<span>{price}</span>$</p>
+          </div>
+        </div>
+       
+
+    </>
+  )
+}
+
+export default ProductsItem
