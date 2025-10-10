@@ -1,7 +1,21 @@
 import Countainer from '@/components/Counteinar'
+import { IProductProps } from '@/components/ProductsItem';
+
 import React from 'react'
 
-function page() {
+
+interface IProductIdProps {
+  params : Promise <{id:string}>,
+  searchparams : Promise <{}>
+}
+
+async function ProductId(props :IProductIdProps) {
+
+  const {id} = await props.params;
+  
+  const result = await fetch(`http://localhost:8000/products/${id}`, { cache: "no-store" });
+  
+    const data = (await result.json()) as  IProductProps;
   return (
     <Countainer>
           <div>
@@ -11,8 +25,10 @@ function page() {
          
             <div className=' col-span-9 rtl text-right p-5'>
                 
-                <h1 className='font-bold text-xl mb-4 '>محصول</h1>
-                <p className=' font-mono text-gray-700 text-xl mb-12'>این محصول به زیباتر شدن شما کمک میکند تا شما درخشان تر باشید </p>
+                <h1 className='font-bold text-xl mb-4 '>{data.title}</h1>
+                <p className=' font-mono text-gray-700 text-xl mb-12'>{data.description}</p>
+                <p className=' font-mono text-gray-700 text-xl mb-12'><span>{data.price}</span>$</p>
+                
               
               <div className='flex flex-row-reverse gap-6 mt-5'>
             
@@ -22,7 +38,7 @@ function page() {
               </div>
             </div>
             <div className=' col-span-3 shadow-2xl bg-purple-400 '>
-                <img src="/pic/4.jfif"/>
+                <img src={data.image}/>
             </div>
 
         </div>
@@ -30,4 +46,4 @@ function page() {
   )
 }
 
-export default page
+export default ProductId

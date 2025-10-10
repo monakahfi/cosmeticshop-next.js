@@ -8,7 +8,9 @@ function Countainer({children}:IContainerProps) {
   return (
     <div
     className=' container mx-auto'
-    >{children}</div>
+    >
+      
+      {children}</div>
   )
 }
 

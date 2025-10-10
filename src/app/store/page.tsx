@@ -1,41 +1,12 @@
 import Countainer from '@/components/Counteinar'
-import ProductsItem from '@/components/ProductsItem'
+import ProductsItem, { IProductProps } from '@/components/ProductsItem'
 import Link from 'next/link'
 import React from 'react'
 
-function Store() {
+ async function Store() {
+   const result = await fetch("http://localhost:8000/products");
 
-
-  const data = [
-   {
-    id:1,
-    image:'/pic/1.jfif',
-    title:"محصول",
-    description:" این محصول به زیباتر شدن شما کمک میکند تا شما درخشان تر باشید ",
-    price:50
-   },
-   {
-    id:2,
-    image:'/pic/2.jfif',
-    title:"محصول",
-    description:" این محصول به زیباتر شدن شما کمک میکند تا شما درخشان تر باشید ",
-    price:50
-   },
-   {
-    id: 3,
-    image:'/pic/3.jfif',
-    title:"محصول",
-    description:" این محصول به زیباتر شدن شما کمک میکند تا شما درخشان تر باشید ",
-    price:50
-   },
-       {
-        id: 4,
-        image:'/pic/4.jfif',
-        title:"محصول",
-        description:" این محصول به زیباتر شدن شما کمک میکند تا شما درخشان تر باشید ",
-        price:50
-       },
-  ]
+  const data = await result.json() as IProductProps[];
   return (
     <Countainer>
       <h1 className='text-right   py-4 font-bold'>فروشگاه</h1>
