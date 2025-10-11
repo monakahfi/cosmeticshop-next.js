@@ -1,3 +1,4 @@
+import AddToCart from '@/components/AddToCart';
 import Countainer from '@/components/Counteinar'
 import { IProductProps } from '@/components/ProductsItem';
 
@@ -30,12 +31,7 @@ async function ProductId(props :IProductIdProps) {
                 <p className=' font-mono text-gray-700 text-xl mb-12'><span>{data.price}</span>$</p>
                 
               
-              <div className='flex flex-row-reverse gap-6 mt-5'>
-            
-              <button className='h-12 w-12 bg-rose-400 shadow-2xl rounded-3xl items-end'>+</button>
-                <p className='my-4'>3</p>
-                <button className='h-12 w-12 bg-rose-400 shadow-2xl  rounded-3xl items-end'>-</button>
-              </div>
+           <AddToCart/>
             </div>
             <div className=' col-span-3 shadow-2xl bg-purple-400 '>
                 <img src={data.image}/>

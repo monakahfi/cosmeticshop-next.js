@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 import Layout from "@/components/layout";
+import ShopingCartContextProvider from "@/context/ShopingCartContext";
 
 
 
@@ -18,10 +19,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body >
+        <ShopingCartContextProvider>
+
         <Layout>
 
         {children}
         </Layout>
+        </ShopingCartContextProvider>
       </body>
     </html>
   );
