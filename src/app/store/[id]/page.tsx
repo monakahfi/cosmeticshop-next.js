@@ -31,7 +31,7 @@ async function ProductId(props :IProductIdProps) {
                 <p className=' font-mono text-gray-700 text-xl mb-12'><span>{data.price}</span>$</p>
                 
               
-           <AddToCart/>
+           <AddToCart id={id}/>
             </div>
             <div className=' col-span-3 shadow-2xl bg-purple-400 '>
                 <img src={data.image}/>

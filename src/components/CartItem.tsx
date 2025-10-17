@@ -1,20 +1,35 @@
-import React from 'react'
+import axios from "axios"
+import { useEffect, useState } from "react"
+import { IProductProps } from "./ProductsItem"
+import AddToCart from "./AddToCart"
 
-function CartItem() {
+interface ICartItemsProps{
+  id:number,
+  qty:number,
+}
+
+function CartItem({id , qty}:ICartItemsProps) {
+  const [cartId,setCartId]=useState<IProductProps>()
+
+  useEffect(()=>{
+    axios(`http://localhost:8000/products/${id}`).then((result)=>{
+       const {data}=result;
+       setCartId(data);
+    })
+  },[])
   return (
    <div className=' grid grid-cols-12 bg-rose-300 mb-4'>
              <div className=' col-span-10  text-right p-4'>
-               <h3 className='text-3xl font-extrabold'>اسم محصول</h3>
-               <p className='text-xl font-semibold'><span>3</span>:تعداد محصول</p>
-               <p className='text-xl font-semibold'><span>45$</span>:قیمت محصول </p>
+               <h3 className='text-3xl font-extrabold'>{cartId?.title} </h3>
+               <p className='text-xl font-semibold'><span>{qty}</span>:تعداد محصول</p>
+               <p className='text-xl font-semibold'><span>{cartId?.price}</span>:قیمت محصول </p>
+             
                  <div className='flex flex-row gap-6 mt-5'>
             
-              <button className='h-12 w-12 bg-rose-400 shadow-2xl rounded-3xl items-end'>+</button>
-                <p className='my-4'>3</p>
-                <button className='h-12 w-12 bg-rose-400 shadow-2xl  rounded-3xl items-end'>-</button>
+             <AddToCart id={id.toString()}/>
               </div>
              </div>
-            <img  src="/pic/1.jfif" className=' col-span-2 '/>
+            <img  src={cartId?.image} className=' col-span-2 '/>
          </div>
         
   )

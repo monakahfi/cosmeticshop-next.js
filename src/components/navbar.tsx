@@ -2,11 +2,14 @@
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import Countainer from "./Counteinar"
+import { useContext } from "react";
+import { useShopingCartContext } from "@/context/ShopingCartContext";
 
 
 
 function Navbar() {
-    const pathName = usePathname()
+    const pathName = usePathname();
+    const {cartTotalQty}= useShopingCartContext();
     const navLinks= [
         {
           href:"/",
@@ -28,6 +31,7 @@ function Navbar() {
             ))}
              </div>
           <div>
+            <span className="px-2 py-1  bg-rose-700 text-white rounded-full w-fit h-fit">{cartTotalQty}</span>
               <Link href="/cart" className="text-2xl font-medium ">سبد خرید 
                 
               </Link>

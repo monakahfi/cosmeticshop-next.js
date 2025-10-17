@@ -1,8 +1,23 @@
+"use client"
 import CartItem from '@/components/CartItem'
 import Countainer from '@/components/Counteinar'
-import React from 'react'
+import { IProductProps } from '@/components/ProductsItem'
+import { useShopingCartContext } from '@/context/ShopingCartContext'
+import { FormatNumber } from '@/utilis/number'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
 
 function Cart() {
+    const { cartItems}= useShopingCartContext();
+      const [cartId,setCartId]=useState<IProductProps[]>([])
+
+  useEffect(()=>{
+    axios(`http://localhost:8000/products`).then((result)=>{
+       const {data}=result;
+       setCartId(data);
+    })
+  },[])
+
   return (
     <Countainer>
         <h1 className='rtl text-2xl font-bold text-right'>سبد خرید</h1>
@@ -10,16 +25,25 @@ function Cart() {
         <img  src="/pic/5.jpg" className=' w-full h-fit pb-6 m-2 shadow-2xl rounded-xl '/>
       </div>
         <div>
-            
-         <CartItem/>
-         <CartItem/>
-         <CartItem/>
-         <CartItem/>
+            {
+              cartItems.map((item)=>(
+                   <CartItem key={item.id} {...item}/>
+              ))
+            }
+         
+       
          
         </div>
         <div className='bg-purple-400  border-2 border-purple-500 rounded-4xl shadow-2xl p-4 text-right font-semibold text-xl '>
 
-            <h3 className='rtl'>قیمت بدون تخفیف:<span>1000$</span></h3>
+            <h3 className='rtl'>قیمت بدون تخفیف:<span>{FormatNumber(
+              cartItems.reduce((total,item)=>{
+                let selectedProduct = cartId.find((product)=> product.id == item.id)
+                return total + (selectedProduct?.price || 0  )  * item.qty
+              },0))
+              
+              
+              }</span></h3>
             <h3 className='rtl'>سود شما از این خرید:<span>100$</span></h3>
             <h3 className='rtl'>قیمت پست:<span>40$</span></h3>
             <h3 className='rtl'>قیمت کل:<span>9000$</span></h3>
