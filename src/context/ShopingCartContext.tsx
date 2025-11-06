@@ -1,5 +1,7 @@
 "use client"
-import React, { createContext, useContext, useState } from "react";
+import { join } from "path";
+import React, { createContext, useContext, useEffect, useState } from "react";
+import { json } from "stream/consumers";
 
  const ShopingCartContext = createContext({} as TShopingCartContext);
 
@@ -84,6 +86,18 @@ function ShopingCartContextProvider({children}:TShopingCartContextProviderProps)
           return currentItems.filter(item => item.id != id)
         })
     }
+
+    useEffect(()=>{
+        const storedCartItems =localStorage.getItem("cartItems")
+
+        if(storedCartItems){
+            setCartItem(JSON.parse(storedCartItems))
+        }
+    },[])
+
+    useEffect(()=>{
+        localStorage.setItem("cartItems",JSON.stringify(cartItems))
+    },[cartItems])
   return (
     <ShopingCartContext.Provider value={{cartItems ,increaseHandler,decreaseHandler,deleteHandler,getProductQty,cartTotalQty}}>
 

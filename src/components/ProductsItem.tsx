@@ -6,6 +6,16 @@ export interface IProductProps{
         price:number
 }
 
+export interface IProductList {
+  first: number| null,
+  prev: number| null ,
+  next: number| null,
+  last: number| null,
+  pages: number,
+  items: number| null,
+  data : IProductProps[],
+}
+
 function ProductsItem({image,title,description,price}:IProductProps) {
   return (
     <>

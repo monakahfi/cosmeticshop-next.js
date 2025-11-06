@@ -2,6 +2,7 @@ import AddToCart from '@/components/AddToCart';
 import Countainer from '@/components/Counteinar'
 import { IProductProps } from '@/components/ProductsItem';
 
+
 import React from 'react'
 
 
@@ -16,7 +17,7 @@ async function ProductId(props :IProductIdProps) {
   
   const result = await fetch(`http://localhost:8000/products/${id}`, { cache: "no-store" });
   
-    const data = (await result.json()) as  IProductProps;
+    const data = await result.json() as  IProductProps;
   return (
     <Countainer>
           <div>
