@@ -5,7 +5,7 @@ import { IProductProps } from '@/components/ProductsItem'
 import { useShopingCartContext } from '@/context/ShopingCartContext'
 import { FormatNumber } from '@/utilis/number'
 import axios from 'axios'
-import React, { useEffect, useState } from 'react'
+import React, { ChangeEvent, useEffect, useState } from 'react'
 
 
 interface IDiscountdata {
@@ -20,6 +20,10 @@ function Cart() {
     const [discountscode,setDiscountscode]=useState<string>("")
     const [finalPrice,setFinalPrice]=useState<number>(0)
     const [disCountsPrice,setDisCountsPrice]=useState<number>(0)
+    const [info , setInfo] = useState<{ name: string; number: string }>({
+        name: "",
+        number: ""
+      })
 
   useEffect(()=>{
     axios(`http://localhost:8000/products`).then((result)=>{
@@ -45,6 +49,27 @@ function Cart() {
     }
     )
     
+  }
+  const infoHandler = (e: ChangeEvent<HTMLInputElement>) => {
+       const { value, name } = e.target
+      //  const key = name as keyof typeof info
+       setInfo(prev => ({
+         ...prev,
+        //  [key]: value
+        [name] : value
+       }))
+  }
+  const clickHandler =()=>{
+    axios({
+      method:"POST",
+      url:"http://localhost:8000/orther",
+      data:{
+        cartItems,
+        id : Math.floor(Math.random() * 1000),
+        userName :info.name,
+        userNumber:info.number,
+      }
+    })
   }
 
   return (
@@ -82,7 +107,9 @@ function Cart() {
             onClick={DiscountHandler}
             className=' rounded-md border w-fit h-fit text-xl font-normal'>اعمال کد تخفیف</button>
                </div>
-            <button className=' rounded-md border w-fit h-fit text-xl font-normal'>پرداخت</button>
+               <input type="text" name='name'   onChange={infoHandler} placeholder='enter name' />
+               <input type='text' name='number' onChange={infoHandler} placeholder='enter number'/>
+            <button  onClick={clickHandler} className=' rounded-md border w-fit h-fit text-xl font-normal'>پرداخت</button>
              </div>
         </div>
     </Countainer>
