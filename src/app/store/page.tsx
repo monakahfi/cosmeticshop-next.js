@@ -1,5 +1,6 @@
 import Countainer from '@/components/Counteinar'
 import Pagination from '@/components/Pagination';
+import Price from '@/components/Price';
 import ProductsItem, { IProductList, IProductProps } from '@/components/ProductsItem'
 import Search from '@/components/Search';
 import Link from 'next/link'
@@ -8,9 +9,10 @@ import React from 'react'
 interface IStoreProps{
   params : Promise<{}>;
   searchParams: Promise<{
-    page:string;
-    per_page:string;
-    title:string;
+    page?:string;
+    per_page?:string;
+    title?:string;
+    price?:string;
   }>
 }
 
@@ -21,9 +23,10 @@ interface IStoreProps{
      const page = (await searchParams)?.page ?? "1";
   const per_page = (await searchParams)?.per_page ?? "3";
   const title = (await searchParams)?.title ?? " ";
+  const price = (await searchParams)?.price ?? " ";
  
 
-   const result = await fetch(`http://localhost:8000/products?_page=${page}&_per_page=${per_page}&title=${title}`,{
+   const result = await fetch(`http://localhost:8000/products?_page=${page}&_per_page=${per_page}&title=${title}&price_lte=${price}`,{
     cache: 'no-store'
    });
 
@@ -32,6 +35,7 @@ interface IStoreProps{
     <Countainer>
       <h1 className='text-right   py-4 font-bold'>فروشگاه</h1>
       <Search/>
+      <Price/>
       <div>
         <img  src="/pic/5.jpg" className=' w-full h-fit pb-6 m-2 shadow-2xl rounded-xl '/>
       </div>

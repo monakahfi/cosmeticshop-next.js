@@ -56,7 +56,7 @@ function Dashboard() {
             <input type="text" onChange={changeProductHandler} name='title' className=' p-2  w-fit h-fit border bg-white content-center-safe border-rose-600'  placeholder=' عنوان خود را وارد کنید ' />
             <input type="text" onChange={changeProductHandler} name='price' className=' p-2   w-fit h-fit border bg-white content-center-safe border-rose-600' placeholder='قیمت خود را وارد کنید ' />
             <input type='file' onChange={changeProductHandler} name='image' className=' p-2   w-fit h-fit border bg-white content-center-safe border-rose-600' placeholder='عکس خود را وارد کنید ' />
-            <textarea placeholder='توضیحات خود را وارد کنید '  name='description'onChange={changeProductHandler} className=' p-2  border  w-fit h-fit bg-white content-center-safe border-rose-600'> </textarea>
+            <textarea placeholder='توضیحات خود را وارد کنید '  name='description' onChange={changeProductHandler} className=' p-2  border  w-fit h-fit bg-white content-center-safe border-rose-600'> </textarea>
            </div>
             <button onClick={clickHandler} className=' p-2   w-fit h-fit border  bg-rose-300 content-center-safe border-rose-600'>ساخت محصول جدید</button>
         </Countainer>
