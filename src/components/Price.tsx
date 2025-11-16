@@ -23,8 +23,8 @@ function Price() {
     router.push(`/store?${currentSearchParams.toString()}`);
   };
   return (
-    <div className="flex flex-col gap-3 p-4 bg-rose-50 rounded-lg w-80">
-      <label>محدوده قیمت تا : {Price}</label>
+    <div className="flex flex-col m-0  bg-rose-300 rounded-lg w-fit h-fit">
+      <label className=" font-medium">محدوده قیمت تا : {Price}</label>
       <input
         type="range"
         min={min}
@@ -36,7 +36,7 @@ function Price() {
 
       <button
         onClick={clickHandler}
-        className="bg-rose-400 text-white rounded-lg p-2 mt-2"
+        className="bg-rose-300 text-white rounded-lg p-2 "
       >
         اعمال
       </button>

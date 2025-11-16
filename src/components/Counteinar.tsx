@@ -7,7 +7,7 @@ interface IContainerProps{
 function Countainer({children}:IContainerProps) {
   return (
     <div
-    className=' container mx-auto'
+    className=' container mx-auto bg-rose-200'
     >
       
       {children}</div>

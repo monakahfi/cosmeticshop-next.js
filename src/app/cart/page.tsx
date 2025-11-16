@@ -76,7 +76,7 @@ function Cart() {
     <Countainer>
         <h1 className='rtl text-2xl font-bold text-right'>سبد خرید</h1>
         <div>
-        <img  src="/pic/5.jpg" className=' w-full h-fit pb-6 m-2 shadow-2xl rounded-xl '/>
+        <img  src="/pic/5.jpg" className=' w-full h-fit p-2 pb-6  shadow-2xl rounded-xl '/>
       </div>
         <div>
             {
@@ -90,26 +90,23 @@ function Cart() {
         </div>
         <div className='bg-purple-400  border-2 border-purple-500 rounded-4xl shadow-2xl p-4 text-right font-semibold text-xl '>
 
-            <h3 className='rtl'>قیمت بدون تخفیف:<span>{FormatNumber(totalPrice)
-              
-              
-              }</span></h3>
-            <h3 className='rtl'>سود شما از این خرید:<span>{FormatNumber(disCountsPrice)}$</span></h3>
-            <h3 className='rtl'>قیمت پست:<span>40$</span></h3>
-            <h3 className='rtl'>قیمت کل:<span>{FormatNumber(finalPrice)}$</span></h3>
+            <h3 className='rtl'>قیمت بدون تخفیف:<span>{FormatNumber(totalPrice)}تومان</span></h3>
+            <h3 className='rtl'>سود شما از این خرید:<span>{FormatNumber(disCountsPrice)}تومان</span></h3>
+            <h3 className='rtl'>قیمت پست:<span>{FormatNumber(40000)}تومان</span></h3>
+            <h3 className='rtl'>قیمت کل:<span>{FormatNumber(finalPrice)}تومان</span></h3>
              <div className='flex flex-col py-4'>
                <div className='flex flex-row text-right  mt-4 rtl'>
 
             <input type='text'
             onChange={(e)=>setDiscountscode(e.target.value)}
-            className=' bg-rose-100 border rounded-md placeholder:text-gray-500' placeholder='درج کد تخفیف'/>
+            className=' bg-rose-100 border  border-rose-500 rounded-md placeholder:text-gray-500' placeholder='درج کد تخفیف'/>
             <button 
             onClick={DiscountHandler}
-            className=' rounded-md border w-fit h-fit text-xl font-normal'>اعمال کد تخفیف</button>
+            className=' rounded-md  bg-red-300  border border-rose-500 w-fit h-fit text-xl font-normal'>اعمال کد تخفیف</button>
                </div>
-               <input type="text" name='name'   onChange={infoHandler} placeholder='enter name' />
-               <input type='text' name='number' onChange={infoHandler} placeholder='enter number'/>
-            <button  onClick={clickHandler} className=' rounded-md border w-fit h-fit text-xl font-normal'>پرداخت</button>
+               <input type="text" name='name'   onChange={infoHandler} placeholder='نام و نام خانوادگی'   className=' bg-white border-rose-500 border placeholder:text-red-500 w-fit h-fit p-2 m-1' />
+               <input type='text' name='number' onChange={infoHandler} placeholder='شماره مشتری' className=' bg-white border-rose-500 border placeholder:text-red-500 w-fit h-fit p-2 m-1'/>
+            <button  onClick={clickHandler} className=' rounded-md border border-rose-500 w-fit h-fit text-xl bg-red-300 font-normal'>پرداخت</button>
              </div>
         </div>
     </Countainer>

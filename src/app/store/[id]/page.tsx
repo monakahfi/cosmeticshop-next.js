@@ -21,7 +21,7 @@ async function ProductId(props :IProductIdProps) {
   return (
     <Countainer>
           <div>
-        <img  src="/pic/5.jpg" className=' w-full h-fit pb-6 m-2 shadow-2xl rounded-xl '/>
+        <img  src="/pic/5.jpg" className=' w-full h-fit p-2 pb-6  shadow-2xl rounded-xl '/>
       </div>
         <div className=' grid grid-cols-12 shadow-2xl mt-8 gap-4'>
          

@@ -1,9 +1,10 @@
 "use client"
 import Link from "next/link"
-import { usePathname } from "next/navigation"
+import { redirect, usePathname } from "next/navigation"
 import Countainer from "./Counteinar"
 import { useContext } from "react";
 import { useShopingCartContext } from "@/context/ShopingCartContext";
+import  cookies from "js-cookie"
 
 
 
@@ -22,6 +23,10 @@ function Navbar() {
         {
           href:"/dashboard",
           title:" داشبورد "
+        },
+         {
+          href:"/login",
+          title:" ورود "
         }
     ]
   return (
@@ -34,11 +39,14 @@ function Navbar() {
              <Link key={i.href} className={`mr-4  text-2xl font-medium ${pathName === i.href ? "text-rose-700":"text-black"}`} href={i.href}>{i.title}</Link>
             ))}
              </div>
-          <div>
+          <div className="flex flex-row-reverse">
             <span className="px-2 py-1  bg-rose-700 text-white rounded-full w-fit h-fit">{cartTotalQty}</span>
-              <Link href="/cart" className="text-2xl font-medium ">سبد خرید 
-                
+              <Link href="/cart" className="text-2xl font-medium ">
+                <img className="w-10 h-10" src="/pic/shop.png"/>
               </Link>
+              <button onClick={()=>{ cookies.remove("token") 
+                redirect("/login")
+              }} className="w-10 h-6 mx-3"><img  src="/pic/exit.png"/></button>
             </div>
                 </div>
                   

@@ -22,7 +22,7 @@ function Pagination({pageCount}:{pageCount:number}) {
     <div>
         
       <ReactPaginate
-      className=' cursor-pointer flex  justify-between gap-0'
+      className=' cursor-pointer flex  font-extrabold  bg-rose-500  justify-between gap-0'
         breakLabel="..."
         nextLabel="next >"
         onPageChange={handlePageClick}

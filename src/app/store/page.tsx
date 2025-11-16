@@ -22,8 +22,8 @@ interface IStoreProps{
   
      const page = (await searchParams)?.page ?? "1";
   const per_page = (await searchParams)?.per_page ?? "3";
-  const title = (await searchParams)?.title ?? " ";
-  const price = (await searchParams)?.price ?? " ";
+  const title = (await searchParams)?.title ?? "";
+  const price = (await searchParams)?.price ?? "";
  
 
    const result = await fetch(`http://localhost:8000/products?_page=${page}&_per_page=${per_page}&title=${title}&price_lte=${price}`,{
@@ -33,11 +33,14 @@ interface IStoreProps{
   const data = await result.json() as IProductList;
   return (
     <Countainer>
-      <h1 className='text-right   py-4 font-bold'>فروشگاه</h1>
+      <h1 className='text-right text-2xl font-bold'>فروشگاه</h1>
+      <div className=' flex gap-2 mt-0 '>
+
       <Search/>
       <Price/>
+      </div>
       <div>
-        <img  src="/pic/5.jpg" className=' w-full h-fit pb-6 m-2 shadow-2xl rounded-xl '/>
+        <img  src="/pic/5.jpg" className=' w-full h-fit p-2 pb-6  shadow-2xl rounded-xl '/>
       </div>
       <div className=' grid grid-cols-4  gap-4'>
       {
@@ -49,7 +52,7 @@ interface IStoreProps{
       }
        
       </div>
-      <Pagination pageCount={data.pages}/>
+      <Pagination pageCount={data.pages} />
     </Countainer>
   )
 }

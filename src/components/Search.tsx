@@ -21,8 +21,8 @@ function Search() {
     }
   return (
     <div>
-        <input type="text" onChange={(e)=>setSearch(e.target.value)} placeholder="search🔎" className=' bg-red-400 border-rose-800 rounded-md border-2'/>
-        <button onClick={searchHandler} className='p-2 bg-rose-500 rounded-md text-white font-medium '>جستجو</button>
+        <input type="text" onChange={(e)=>setSearch(e.target.value)} placeholder="search🔎" className=' bg-red-200 p-2 w-62 h-fit border-rose-500 rounded-md border-2'/>
+        <button onClick={searchHandler} className='p-2 bg-rose-300  w-fit h-fit rounded-md  text-white font-medium '>جستجو</button>
     </div>
   )
 }
