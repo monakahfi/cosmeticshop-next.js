@@ -23,7 +23,7 @@ function Price() {
     router.push(`/store?${currentSearchParams.toString()}`);
   };
   return (
-    <div className="flex flex-col m-0  bg-rose-300 rounded-lg w-fit h-fit">
+    <div className="flex flex-row-reverse m-0  bg-rose-300 rounded-lg w-fit h-fit ">
       <label className=" font-medium">محدوده قیمت تا : {Price}</label>
       <input
         type="range"

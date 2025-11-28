@@ -15,7 +15,7 @@ function Pagination({pageCount}:{pageCount:number}) {
 
         const page = e.selected + 1
         currentSearchParams.set("page", page.toString())
-        currentSearchParams.set("per_page","2")
+        currentSearchParams.set("per_page","5")
       router.push(`/store?${currentSearchParams.toString()}`)
     }
   return (

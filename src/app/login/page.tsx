@@ -25,7 +25,7 @@ function Login() {
            <div>
         <img  src="/pic/5.jpg" className=' w-full h-fit p-2 pb-6  shadow-2xl rounded-xl '/>
       </div>
-         <div className='  p-8 mt-3 m-20 mx-auto flex flex-col border bg-rose-300  border-rose-500 shadow- rounded-2xl shadow-red-500 w-fit h-100 justify-center gap-3 items-center '>
+         <div className='  p-8 mt-3 m-20 mx-auto flex flex-col border bg-rose-300   border-rose-500 shadow- rounded-2xl shadow-red-500 w-fit h-100 justify-center gap-3 items-center '>
             <p    className=' p-2 m-2 text-3xl text-rose-600 font-medium shadow-red-800 shadow box-content ' >ورود کاربر</p>
             <input onChange={(e)=>setUserName(e.target.value)} type="text"     placeholder='نام کاربری ' className=' p-2 m-2 border border-rose-500 rounded  bg-rose-400 w-fit' />
             <input onChange={(e)=>setPassword(e.target.value)} type="password" placeholder=' رمز خود را وارد کنید' className=' p-2 m-2 border border-rose-500 rounded  bg-rose-400 w-fit'/>
