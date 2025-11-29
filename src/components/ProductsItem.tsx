@@ -20,7 +20,7 @@ function ProductsItem({image,title,description,price}:IProductProps) {
   return (
     <>
           <div className=' h-fit  shadow-2xl max-md:w-fit max-md:h-fit '>
-          <img src={image} className='p-4 rounded-md shadow max-md:w-fit max-md:h-fit max-md:p-8'/>
+          <img src={image} alt="image" className='p-4 rounded-md shadow max-md:w-fit max-md:h-fit max-md:p-8'/>
           <div className='p-2 text-right  rtl font-medium '>
             <h1 className=" font-extrabold pt-2">{title}</h1>
             <h5 className=" pb-1 text-gray-700 font-extralight">{description}</h5>
