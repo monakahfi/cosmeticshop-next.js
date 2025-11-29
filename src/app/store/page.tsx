@@ -55,9 +55,9 @@ interface IStoreProps{
         ))
  }
       </div>
-      <div className='w-full h-100  p-5  mt-6  gap-6  mb-8  flex  justify-center items-center flex-row-reverse max-md:hidden '>
+      <div className='w-full h-100  p-5  mt-6  gap-6  mb-8  ease-in-out  flex  justify-center items-center flex-row-reverse max-md:hidden  relative '>
        
-        <p className='w-2xl h-100   shadow-2xl font-medium  text-xl items-center text-right shadow-rose-400  max-md:h-50 max-md:w-50 max-md:justify-center  '>روتین پوستی مجموعه‌ای از محصولات هدفمند است که به پوست فرصت می‌دهد در بهترین حالت خود بدرخشد.
+        <p className='w-2xl h-100   shadow-2xl font-medium   ease-in-out  text-xl items-center text-right shadow-rose-400  max-md:h-50 max-md:w-50 max-md:justify-center  '>روتین پوستی مجموعه‌ای از محصولات هدفمند است که به پوست فرصت می‌دهد در بهترین حالت خود بدرخشد.
 هر محصول با فرمولی دقیق طراحی شده تا نیازهای خاص پوست را برطرف کند؛ از پاکسازی عمیق تا آبرسانی و تغذیه روزانه.
 مواد مؤثره‌ای مانند هیالورونیک اسید، نیاسینامید و ویتامین C در کنار هم، تعادل و شادابی را به بافت پوست بازمی‌گردانند.
 استفاده منظم از این محصولات، ظاهر پوست را یکنواخت‌تر کرده و روند پیری را به‌طور ملموس کاهش می‌دهد.
@@ -66,10 +66,20 @@ interface IStoreProps{
 هر قدم از این روتین، سرمایه‌گذاری کوچکی برای داشتن پوستی روشن، سالم و درخشان است.</p>
        
        
-        <img src='/pho/5.jfif' className='w-2xl h-100    rounded-2xl shadow-2xl shadow-rose-400  max-md:h-50 max-md:w-50'/>
+        <img src='/pho/5.jfif' className='w-2xl h-100   ease-in-out  transform-content   rounded-2xl shadow-2xl shadow-rose-400  max-md:h-50 max-md:w-50'/>
       
       </div>
       <Pagination pageCount={data.pages}  />
+
+      <div className='m-auto p-2'>
+        <p className='flex pt-5 m-auto  pb-2 justify-center font-extrabold text-4xl'>راه های ارتباطی با ما </p>
+        <div className='flex  justify-center items-center gap-5 '>
+          <img  className=' w-10 h-10' src='/pic/instagram.png' alt="instagram" />
+          <img  className=' w-10 h-10' src='/pic/phone-call.png'  alt="phone-call" />
+          <img  className=' w-10 h-10' src='/pic/social.png'  alt="whatsapp" />
+        </div>
+        <p  className='flex pb-3 pt-3 justify-center font-extrabold text-2xl'>با ما در تماس باشید </p>
+      </div>
     </Countainer>
   )
 }
