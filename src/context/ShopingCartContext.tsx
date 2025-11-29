@@ -1,7 +1,7 @@
 "use client"
-import { join } from "path";
+
 import React, { createContext, useContext, useEffect, useState } from "react";
-import { json } from "stream/consumers";
+
 
  const ShopingCartContext = createContext({} as TShopingCartContext);
 
@@ -40,7 +40,7 @@ function ShopingCartContextProvider({children}:TShopingCartContextProviderProps)
     }
     const increaseHandler = ( id: number)=>{
         setCartItem(currentItem =>{
-            let isNotProductExist = currentItem.find(item => item.id == id) == null;
+           const isNotProductExist = currentItem.find(item => item.id == id) == null;
             if(isNotProductExist){
                return [...currentItem ,{id:id ,qty:1}]
             } //if not exist add on
@@ -60,7 +60,7 @@ function ShopingCartContextProvider({children}:TShopingCartContextProviderProps)
 
     const decreaseHandler = (id:number)=>{
       setCartItem(currentItems=>{
-        let islastOne = currentItems.find(item => item.id == id)?.qty == 1 // اگر محصول وجود داشت 
+        const islastOne = currentItems.find(item => item.id == id)?.qty == 1 // اگر محصول وجود داشت 
 
         if(islastOne){
             return currentItems.filter(item => item.id != id) // فقط همین یدونه هست 

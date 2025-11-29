@@ -7,11 +7,11 @@ import React from 'react'
 
 
 interface IProductIdProps {
-  params : Promise <{id:string}>,
-  searchparams : Promise <{}>
+  params : Promise <{id:string}>;
+ 
 }
 
-async function ProductId(props :IProductIdProps) {
+async function ProductId(props:IProductIdProps) {
 
   const {id} = await props.params;
   
